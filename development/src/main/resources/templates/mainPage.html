@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>TV List Project</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<form action="/mainPage" method="post" th:object="${enteringRequest}">
+				
+				<div class="field">
+					<input type="text" name="radioOrTv" required>
+					<label>radio or tv</label>
+				</div>
+
+				<div class="field">
+					<input type="text" name="name" required>
+					<label>Name</label>
+				</div>
+
+				<div class="field">
+					<input type="text" name="site" required>
+					<label>Site</label>
+				</div>
+				
+
+				<div class="field">
+					<input type="text" name="logo" required>
+					<label>Logo</label>
+				</div>
+				
+				<div class="field">
+					<input type="text" name="frame">
+					<label>Frame</label>
+				</div>
+				
+				<div class="field">
+					<input type="text" name="specification">
+					<label>Specification</label>
+				</div>
+				
+				<div class="field">
+					<input type="text" name="streamLocation" required>
+					<label>Stream Location</label>
+				</div>
+				
+				<button type="submit" name="Button" value="Button">Submit</button>
+
+				<p><span th:text="${userEntering}"></span></p>
+
+				<a href="/import">Navigate to File Importation</a>
+			</form>
+		</div>
+		
+	</body>
+
+</html>

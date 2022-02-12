@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Import</title>
+</head>
+<body>
+    <h1>Choose file and display its Name</h1>
+    <input type="file" id="inputTypeFile" multiple>
+
+    <div id="showFilesList"></div>
+
+    <a href="/mainPage">Navigate to mainPage</a>
+    <script>
+        inputTypeFile = document.getElementById('inputTypeFile');
+        showFilesList = document.getElementById('showFilesList');
+
+        inputTypeFile.addEventListener('change', function(){
+            if(this.files.length > 0) {
+                for (var i = 0; i < this.files.length; i++) {
+                    showFilesList.innerHTML += "<p>" + this.files.item(i).name + "<span class='closeIT'>X<span></p>"
+                }
+            }
+
+            closeIT = document.getElementsByClassName('classIT')
+                arrayFromCloseBtn = [...closeIT];
+                arrayFromCloseBtn.forEach((onebyone) =>{
+                    onebyone.addEventListener('click', function(e) {
+                        e.target.parentElement.remove();
+                        if (showFilesList.firstChild == null) {
+                            alert('you cleared all files, select again to view the list');
+                        }
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
